@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of pets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <li class="nav-item">
+        <a class="nav-link" href="/list-humans">All owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/list-pets">All pet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-human">Edit owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-pet">Edit pet</a>
+    </li>
+</nav>
+<div class="container">
+    <h1>The cutest pets in the world</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Owner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pet : ${pets}" th:object="${pet}">
+            <th scope="row" th:text="*{petId}"></th>
+            <td th:text="*{petName}"></td>
+            <td th:text="${pet.getOwner() != null} ? *{owner.humanName} : 'No owner yet'"></td>
+        </tr>
+        </tbody>
+</div>
+</table>
+</div>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>

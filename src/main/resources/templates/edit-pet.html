@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <li class="nav-item">
+        <a class="nav-link" href="/list-humans">All owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/list-pets">All pet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-human">Edit owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-pet">Edit pet</a>
+    </li>
+</nav>
+<div class="container">
+    <h1>Add new pet</h1>
+    <p1 th:if="${invalidPetData}" style="color: red">"Something went wrong, please check if the fields are filled out
+        or use another name, because the name is already taken"
+    </p1>
+    <form class="title" th:action="@{/add-pet}" method="post">
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Name of pet" th:field="${pet.petName}">
+            </div>
+        </div>
+        <select name="humanId">
+            <option th:each="owner : ${owners}" th:value="${owner.humanId}" th:text="${owner.humanName}"></option>
+        </select>
+        <button type="submit" class="btn btn-outline-danger">ADD</button>
+    </form>
+    <h1>Search pets with owner who are older than given parameter</h1>
+    <form class="title" th:action="@{/api/pet-names-older-human/}" method="POST">
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Age of owner" name="humanAge">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">SEARCH</button>
+    </form>
+</div>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>

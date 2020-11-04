@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <li class="nav-item">
+        <a class="nav-link" href="/list-humans">All owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/list-pets">All pet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-human">Edit owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-pet">Edit pet</a>
+    </li>
+</nav>
+<div class="container">
+    <h1>Add new owner</h1>
+    <p1 th:if="${invalidHumanData}" style="color: red">"Something went wrong, please check if the fields are filled out
+        or use another name, because the name is already taken"
+    </p1>
+    <form class="title" th:action="@{/add-human}" method="POST">
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Name of human" th:field="${human.humanName}">
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Age of human" th:field="${human.humanAge}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">ADD</button>
+    </form>
+
+    <h1>Delete owner by ID</h1>
+    <form class="title" th:action="@{/delete}" method="POST">
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="ID of human" th:field="${human.humanId}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">DELETE</button>
+    </form>
+
+    <h1>Edit owner by ID</h1>
+    <form class="title" th:action="@{/edit}" method="POST">
+        <div class="form-row">
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="ID of human" th:field="${human.humanId}">
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Name of human" th:field="${human.humanName}">
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" placeholder="Age of human" th:field="${human.humanAge}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">EDIT</button>
+    </form>
+</div>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>

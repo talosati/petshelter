@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of humen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <li class="nav-item">
+        <a class="nav-link" href="/list-humans">All owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/list-pets">All pet</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-human">Edit owner</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/add-pet">Edit pet</a>
+    </li>
+</nav>
+<div class="container">
+    <h1>Coolest owners ever</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="human : ${humen}" th:object="${human}">
+            <th scope="row" th:text="*{humanId}"></th>
+            <td th:text="*{humanName}"></td>
+            <td th:text="*{humanAge}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>
