@@ -14,7 +14,7 @@
 </p>
 
 <h2>Description</h2>
-<p align="justify">You can check list of owners and their pets, edit or delete data of stored items. Java backend using Thymeleaf to making dynamic HTML templates for displaying results. The added owners and pets are stored in a SQL database, handled by Hibernate ORM. 
+<p align="justify">You can check list of owners and their pets, edit or delete data of stored items. Java backend using Thymeleaf to making dynamic HTML templates for displaying results, designing by Bootstrap. The added owners and pets are stored in a SQL database, handled by Hibernate ORM. 
 App is deployed using Heroku.</p>
 
 <p align="center">
@@ -27,6 +27,7 @@ App is deployed using Heroku.</p>
   <li><a href="https://docs.gradle.org/current/userguide/userguide.html">Gradle</a></li>
   <li><a href="https://hibernate.org/">Hibernate</a></li></li>
   <li><a href="https://www.thymeleaf.org/">Thymeleaf</a></li></li>
+  <li><a href="https://getbootstrap.com/">Bootstrap</a></li></li>
   <li><a href="https://devcenter.heroku.com/">Heroku</a></li></li>
 </ul>
 
