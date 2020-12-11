@@ -83,7 +83,7 @@ List<Pet> getAllPets();
 ```
 
 <h2>Heroku :fire:</h2>
-<p align="justify">App is deployed to Heroku. You can see my app <a href="https://petshelter-spring.herokuapp.com/">here</a>.</p>
+<p align="justify">App is deployed to Heroku. You can see my app <a href="https://petshelter-spring.herokuapp.com/" target="_blank">here</a>.</p>
 
 <h2 align="center">Thank you for reading! :wave:</h2>
 
